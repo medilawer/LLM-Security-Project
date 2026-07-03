@@ -30,8 +30,8 @@ function UsersPoliciesPage() {
           <form className="stack-form" onSubmit={handleSubmit}>
             <label htmlFor="policy-group">User Group</label>
             <input id="policy-group" value={group} onChange={(event) => setGroup(event.target.value)} placeholder="Finance Team" required />
-            <label>Policy Name</label>
-            <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Finance Prompt Guard" required />
+            <label htmlFor="policy-name">Policy Name</label>
+            <input id="policy-name" value={name} onChange={(event) => setName(event.target.value)} placeholder="Finance Prompt Guard" required />
             <label>Restricted Keywords (comma-separated)</label>
             <input
               value={restrictedCategory}
