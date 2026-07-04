@@ -32,8 +32,8 @@ function UsersPoliciesPage() {
             <input id="policy-group" value={group} onChange={(event) => setGroup(event.target.value)} placeholder="Finance Team" required />
             <label htmlFor="policy-name">Policy Name</label>
             <input id="policy-name" value={name} onChange={(event) => setName(event.target.value)} placeholder="Finance Prompt Guard" required />
-            <label>Restricted Keywords (comma-separated)</label>
-            <input
+            <label htmlFor="policy-keywords">Restricted Keywords (comma-separated)</label>
+            <input id="policy-keywords"
               value={restrictedCategory}
               onChange={(event) => setRestrictedCategory(event.target.value)}
               placeholder="account, card, iban"
