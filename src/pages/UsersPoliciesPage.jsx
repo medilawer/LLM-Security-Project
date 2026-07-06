@@ -39,8 +39,8 @@ function UsersPoliciesPage() {
               placeholder="account, card, iban"
               required
             />
-            <label>Rate Limit (per day)</label>
-            <input
+            <label htmlFor="policy-rate">Rate Limit (per day)</label>
+            <input id="policy-rate"
               type="number"
               min="1"
               value={rateLimit}
