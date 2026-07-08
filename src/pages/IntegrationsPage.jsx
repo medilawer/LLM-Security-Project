@@ -26,8 +26,8 @@ function IntegrationsPage() {
         <article className="panel">
           <h3>Add Integration</h3>
           <form className="stack-form" onSubmit={handleSubmit}>
-            <label>Provider</label>
-            <input value={provider} onChange={(event) => setProvider(event.target.value)} placeholder="Secure API" required />
+            <label htmlFor="integration-provider">Provider</label>
+            <input id="integration-provider" value={provider} onChange={(event) => setProvider(event.target.value)} placeholder="Secure API" required />
             <label>Model</label>
             <input value={model} onChange={(event) => setModel(event.target.value)} placeholder="secure-api-v3" required />
             <label>Connection Mode</label>
