@@ -30,8 +30,8 @@ function IntegrationsPage() {
             <input id="integration-provider" value={provider} onChange={(event) => setProvider(event.target.value)} placeholder="Secure API" required />
             <label htmlFor="integration-model">Model</label>
             <input id="integration-model" value={model} onChange={(event) => setModel(event.target.value)} placeholder="secure-api-v3" required />
-            <label>Connection Mode</label>
-            <input value={mode} onChange={(event) => setMode(event.target.value)} placeholder="Token Auth" required />
+            <label htmlFor="integration-mode">Connection Mode</label>
+            <input id="integration-mode" value={mode} onChange={(event) => setMode(event.target.value)} placeholder="Token Auth" required />
             <button type="submit" className="primary">Add Integration</button>
           </form>
         </article>
