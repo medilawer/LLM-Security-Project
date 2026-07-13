@@ -32,8 +32,8 @@ function EnforcementPage() {
         <article className="panel">
           <h3>Run Prompt Check</h3>
           <form className="stack-form" onSubmit={handleSubmit}>
-            <label>User Email</label>
-            <input
+            <label htmlFor="enforcement-email">User Email</label>
+            <input id="enforcement-email"
               type="email"
               value={user}
               onChange={(event) => setUser(event.target.value)}
