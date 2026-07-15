@@ -40,8 +40,8 @@ function EnforcementPage() {
               placeholder="analyst@company.com"
               required
             />
-            <label>Prompt</label>
-            <input
+            <label htmlFor="enforcement-prompt">Prompt</label>
+            <input id="enforcement-prompt"
               value={prompt}
               onChange={(event) => setPrompt(event.target.value)}
               placeholder="Write report with account details"
