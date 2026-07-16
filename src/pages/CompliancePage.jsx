@@ -24,8 +24,8 @@ function CompliancePage() {
         <article className="panel">
           <h3>Run Test</h3>
           <form className="stack-form" onSubmit={handleSubmit}>
-            <label>Test Suite</label>
-            <select value={suite} onChange={(event) => setSuite(event.target.value)}>
+            <label htmlFor="compliance-suite">Test Suite</label>
+            <select id="compliance-suite" value={suite} onChange={(event) => setSuite(event.target.value)}>
               {Object.keys(complianceSuites).map((name) => <option key={name}>{name}</option>)}
             </select>
             <label>Model</label>
