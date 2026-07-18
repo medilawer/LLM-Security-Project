@@ -28,8 +28,8 @@ function CompliancePage() {
             <select id="compliance-suite" value={suite} onChange={(event) => setSuite(event.target.value)}>
               {Object.keys(complianceSuites).map((name) => <option key={name}>{name}</option>)}
             </select>
-            <label>Model</label>
-            <input value={model} onChange={(event) => setModel(event.target.value)} required />
+            <label htmlFor="compliance-model">Model</label>
+            <input id="compliance-model" value={model} onChange={(event) => setModel(event.target.value)} required />
             <button type="submit" className="primary">Run Compliance Test</button>
           </form>
           {report ? (
