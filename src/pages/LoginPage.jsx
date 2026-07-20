@@ -38,6 +38,7 @@ function LoginPage() {
         <label htmlFor="email">Email</label>
         <input
           id="email"
+          autoComplete="username"
           type="email"
           placeholder="admin@company.com"
           value={email}
@@ -48,6 +49,7 @@ function LoginPage() {
         <label htmlFor="password">Password</label>
         <input
           id="password"
+          autoComplete="current-password"
           type="password"
           placeholder="Enter password"
           value={password}
