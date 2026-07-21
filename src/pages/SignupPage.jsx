@@ -40,6 +40,7 @@ function SignupPage() {
         <label htmlFor="name">Full Name</label>
         <input
           id="name"
+          autoComplete="name"
           type="text"
           placeholder="Team Admin"
           value={name}
@@ -50,6 +51,7 @@ function SignupPage() {
         <label htmlFor="email">Email</label>
         <input
           id="email"
+          autoComplete="email"
           type="email"
           placeholder="admin@company.com"
           value={email}
@@ -60,6 +62,7 @@ function SignupPage() {
         <label htmlFor="company">Organization</label>
         <input
           id="company"
+          autoComplete="organization"
           type="text"
           placeholder="Acme Labs"
           value={company}
@@ -70,6 +73,7 @@ function SignupPage() {
         <label htmlFor="password">Password</label>
         <input
           id="password"
+          autoComplete="new-password"
           type="password"
           placeholder="Create password"
           value={password}
