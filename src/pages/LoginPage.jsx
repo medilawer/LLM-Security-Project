@@ -33,7 +33,7 @@ function LoginPage() {
         <h1>Login</h1>
         <p>Access your LLM security workspace.</p>
 
-        {error ? <div className="auth-msg error">{error}</div> : null}
+        {error ? <div className="auth-msg error" role="alert">{error}</div> : null}
 
         <label htmlFor="email">Email</label>
         <input
