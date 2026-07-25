@@ -35,7 +35,7 @@ function SignupPage() {
         <h1>Sign Up</h1>
         <p>Create a workspace for policy-based LLM access.</p>
 
-        {error ? <div className="auth-msg error">{error}</div> : null}
+        {error ? <div className="auth-msg error" role="alert">{error}</div> : null}
 
         <label htmlFor="name">Full Name</label>
         <input
