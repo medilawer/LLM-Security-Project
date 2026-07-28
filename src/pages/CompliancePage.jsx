@@ -32,20 +32,22 @@ function CompliancePage() {
             <input id="compliance-model" value={model} onChange={(event) => setModel(event.target.value)} required />
             <button type="submit" className="primary">Run Compliance Test</button>
           </form>
-          {report ? (
-            <div aria-live="polite">
-              <h3>Latest Report: {report.passed}/{report.total} checks passed</h3>
-              <ul className="plain-list">
-                {report.cases.map((item, index) => (
-                  <li key={index}>
-                    <strong>{item.passed ? 'Pass' : 'Fail'}</strong>: {item.prompt}
-                    <div>Expected: {item.expected} | Actual: {item.decision}</div>
-                    <div>{item.reason}</div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
+          <div aria-live="polite">
+            {report ? (
+              <div className="compliance-report">
+                <h3>Latest Report: {report.passed}/{report.total} checks passed</h3>
+                <ul className="plain-list">
+                  {report.cases.map((item, index) => (
+                    <li key={index}>
+                      <strong>{item.passed ? 'Pass' : 'Fail'}</strong>: {item.prompt}
+                      <div>Expected: {item.expected} | Actual: {item.decision}</div>
+                      <div>{item.reason}</div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
         </article>
 
         <article className="panel">
