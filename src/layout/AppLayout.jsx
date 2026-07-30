@@ -30,7 +30,7 @@ function AppLayout() {
           <span>{currentUser?.email}</span>
         </div>
 
-        <nav>
+        <nav aria-label="Workspace">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
