@@ -21,6 +21,7 @@ function AppLayout() {
 
   return (
     <div className="shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <aside className="sidebar">
         <h1>LLM Secure</h1>
         <p>Policy Enforcement Platform</p>
@@ -48,7 +49,7 @@ function AppLayout() {
         </button>
       </aside>
 
-      <main className="content">
+      <main className="content" id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
     </div>
