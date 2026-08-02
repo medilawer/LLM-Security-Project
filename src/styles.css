@@ -284,3 +284,19 @@ th {
     border-bottom: 1px solid var(--border);
   }
 }
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+  transform: translateY(-200%);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--primary-dark);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
