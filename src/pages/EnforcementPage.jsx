@@ -41,7 +41,8 @@ function EnforcementPage() {
               required
             />
             <label htmlFor="enforcement-prompt">Prompt</label>
-            <input id="enforcement-prompt"
+            <textarea id="enforcement-prompt"
+              rows={4}
               value={prompt}
               onChange={(event) => setPrompt(event.target.value)}
               placeholder="Write report with account details"
