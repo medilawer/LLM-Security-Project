@@ -311,3 +311,7 @@ th {
   outline: 2px solid var(--primary-dark);
   outline-offset: 2px;
 }
+
+textarea {
+  resize: vertical;
+}
