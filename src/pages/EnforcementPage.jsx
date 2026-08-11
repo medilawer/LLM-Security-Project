@@ -54,7 +54,7 @@ function EnforcementPage() {
           {error ? <p role="alert">{error}</p> : null}
           <div role="status">
             {result ? (
-              <div className="auth-msg" style={{ marginTop: '0.9rem', background: '#eef6ff', border: '1px solid #d3e5ff' }}>
+              <div className="auth-msg prompt-result">
                 Decision: <strong>{result.decision}</strong> | Reason: {result.reason}
               </div>
             ) : null}
