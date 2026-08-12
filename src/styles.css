@@ -315,3 +315,9 @@ th {
 textarea {
   resize: vertical;
 }
+
+.prompt-result {
+  margin-top: 0.9rem;
+  background: #eef6ff;
+  border: 1px solid #d3e5ff;
+}
