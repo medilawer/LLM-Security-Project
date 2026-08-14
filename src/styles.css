@@ -321,3 +321,8 @@ textarea {
   background: #eef6ff;
   border: 1px solid #d3e5ff;
 }
+
+.compliance-report {
+  margin-top: 1rem;
+  overflow-wrap: anywhere;
+}
