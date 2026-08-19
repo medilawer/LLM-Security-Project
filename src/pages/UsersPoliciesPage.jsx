@@ -53,33 +53,35 @@ function UsersPoliciesPage() {
         </article>
 
         <article className="panel">
-          <h3>Assigned Policies</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>User Group</th>
-                <th>Policy</th>
-                <th>Restricted</th>
-                <th>Rate</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {policies.map((policy) => (
-                <tr key={policy.id}>
-                  <td>{policy.group}</td>
-                  <td>{policy.name}</td>
-                  <td>{policy.restrictedCategory}</td>
-                  <td>{policy.rateLimit}</td>
-                  <td>
-                    <button type="button" className="mini-btn" onClick={() => removePolicy(policy.id)}>
-                      Delete
-                    </button>
-                  </td>
+          <h3 id="userspolicies-records">Assigned Policies</h3>
+          <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="userspolicies-records">
+            <table>
+              <thead>
+                <tr>
+                  <th>User Group</th>
+                  <th>Policy</th>
+                  <th>Restricted</th>
+                  <th>Rate</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {policies.map((policy) => (
+                  <tr key={policy.id}>
+                    <td>{policy.group}</td>
+                    <td>{policy.name}</td>
+                    <td>{policy.restrictedCategory}</td>
+                    <td>{policy.rateLimit}</td>
+                    <td>
+                      <button type="button" className="mini-btn" onClick={() => removePolicy(policy.id)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </article>
       </div>
     </section>
