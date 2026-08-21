@@ -58,11 +58,11 @@ function UsersPoliciesPage() {
             <table>
               <thead>
                 <tr>
-                  <th>User Group</th>
-                  <th>Policy</th>
-                  <th>Restricted</th>
-                  <th>Rate</th>
-                  <th>Action</th>
+                  <th scope="col">User Group</th>
+                  <th scope="col">Policy</th>
+                  <th scope="col">Restricted</th>
+                  <th scope="col">Rate</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
