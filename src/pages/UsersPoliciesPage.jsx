@@ -66,6 +66,9 @@ function UsersPoliciesPage() {
                 </tr>
               </thead>
               <tbody>
+                {policies.length === 0 ? (
+                  <tr><td colSpan={5}>No policies yet.</td></tr>
+                ) : null}
                 {policies.map((policy) => (
                   <tr key={policy.id}>
                     <td>{policy.group}</td>
