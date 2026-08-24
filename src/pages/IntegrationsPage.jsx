@@ -37,37 +37,39 @@ function IntegrationsPage() {
         </article>
 
         <article className="panel">
-          <h3>Connected Providers</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Provider</th>
-                <th>Model</th>
-                <th>Mode</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {integrations.map((integration) => (
-                <tr key={integration.id}>
-                  <td>{integration.provider}</td>
-                  <td>{integration.model}</td>
-                  <td>{integration.mode}</td>
-                  <td>{integration.status}</td>
-                  <td>
-                    <button
-                      type="button"
-                      className="mini-btn"
-                      onClick={() => toggleIntegrationStatus(integration.id)}
-                    >
-                      Toggle
-                    </button>
-                  </td>
+          <h3 id="integrations-records">Connected Providers</h3>
+          <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="integrations-records">
+            <table>
+              <thead>
+                <tr>
+                  <th>Provider</th>
+                  <th>Model</th>
+                  <th>Mode</th>
+                  <th>Status</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {integrations.map((integration) => (
+                  <tr key={integration.id}>
+                    <td>{integration.provider}</td>
+                    <td>{integration.model}</td>
+                    <td>{integration.mode}</td>
+                    <td>{integration.status}</td>
+                    <td>
+                      <button
+                        type="button"
+                        className="mini-btn"
+                        onClick={() => toggleIntegrationStatus(integration.id)}
+                      >
+                        Toggle
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </article>
       </div>
     </section>
