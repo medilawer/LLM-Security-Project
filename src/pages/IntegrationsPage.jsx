@@ -42,11 +42,11 @@ function IntegrationsPage() {
             <table>
               <thead>
                 <tr>
-                  <th>Provider</th>
-                  <th>Model</th>
-                  <th>Mode</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th scope="col">Provider</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">Mode</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
