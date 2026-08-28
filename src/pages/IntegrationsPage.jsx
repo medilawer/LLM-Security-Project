@@ -50,6 +50,9 @@ function IntegrationsPage() {
                 </tr>
               </thead>
               <tbody>
+                {integrations.length === 0 ? (
+                  <tr><td colSpan={5}>No integration records yet.</td></tr>
+                ) : null}
                 {integrations.map((integration) => (
                   <tr key={integration.id}>
                     <td>{integration.provider}</td>
