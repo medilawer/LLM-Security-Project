@@ -62,27 +62,29 @@ function EnforcementPage() {
         </article>
 
         <article className="panel">
-          <h3>Latest Decisions</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>User</th>
-                <th>Decision</th>
-                <th>Reason</th>
-              </tr>
-            </thead>
-            <tbody>
-              {enforcementLogs.map((log) => (
-                <tr key={log.id}>
-                  <td>{log.time}</td>
-                  <td>{log.user}</td>
-                  <td>{log.decision}</td>
-                  <td>{log.reason}</td>
+          <h3 id="enforcement-records">Latest Decisions</h3>
+          <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="enforcement-records">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>User</th>
+                  <th>Decision</th>
+                  <th>Reason</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {enforcementLogs.map((log) => (
+                  <tr key={log.id}>
+                    <td>{log.time}</td>
+                    <td>{log.user}</td>
+                    <td>{log.decision}</td>
+                    <td>{log.reason}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </article>
       </div>
     </section>
