@@ -67,10 +67,10 @@ function EnforcementPage() {
             <table>
               <thead>
                 <tr>
-                  <th>Time</th>
-                  <th>User</th>
-                  <th>Decision</th>
-                  <th>Reason</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">User</th>
+                  <th scope="col">Decision</th>
+                  <th scope="col">Reason</th>
                 </tr>
               </thead>
               <tbody>
