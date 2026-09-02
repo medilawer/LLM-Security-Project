@@ -74,6 +74,9 @@ function EnforcementPage() {
                 </tr>
               </thead>
               <tbody>
+                {enforcementLogs.length === 0 ? (
+                  <tr><td colSpan={4}>No prompt checks yet.</td></tr>
+                ) : null}
                 {enforcementLogs.map((log) => (
                   <tr key={log.id}>
                     <td>{log.time}</td>
