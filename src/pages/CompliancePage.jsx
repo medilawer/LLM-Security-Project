@@ -51,27 +51,29 @@ function CompliancePage() {
         </article>
 
         <article className="panel">
-          <h3>Recent Test Runs</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Test Suite</th>
-                <th>Model</th>
-                <th>Score</th>
-                <th>Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              {complianceRuns.map((run) => (
-                <tr key={run.id}>
-                  <td>{run.suite}</td>
-                  <td>{run.model}</td>
-                  <td>{run.cases ? `${run.score}%` : 'Legacy demo'}</td>
-                  <td>{run.cases ? run.result : 'Not measured'}</td>
+          <h3 id="compliance-records">Recent Test Runs</h3>
+          <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="compliance-records">
+            <table>
+              <thead>
+                <tr>
+                  <th>Test Suite</th>
+                  <th>Model</th>
+                  <th>Score</th>
+                  <th>Result</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {complianceRuns.map((run) => (
+                  <tr key={run.id}>
+                    <td>{run.suite}</td>
+                    <td>{run.model}</td>
+                    <td>{run.cases ? `${run.score}%` : 'Legacy demo'}</td>
+                    <td>{run.cases ? run.result : 'Not measured'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </article>
       </div>
     </section>
