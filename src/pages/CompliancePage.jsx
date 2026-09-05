@@ -56,10 +56,10 @@ function CompliancePage() {
             <table>
               <thead>
                 <tr>
-                  <th>Test Suite</th>
-                  <th>Model</th>
-                  <th>Score</th>
-                  <th>Result</th>
+                  <th scope="col">Test Suite</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Result</th>
                 </tr>
               </thead>
               <tbody>
