@@ -63,6 +63,9 @@ function CompliancePage() {
                 </tr>
               </thead>
               <tbody>
+                {complianceRuns.length === 0 ? (
+                  <tr><td colSpan={4}>No compliance runs yet.</td></tr>
+                ) : null}
                 {complianceRuns.map((run) => (
                   <tr key={run.id}>
                     <td>{run.suite}</td>
