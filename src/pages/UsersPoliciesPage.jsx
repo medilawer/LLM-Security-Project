@@ -76,7 +76,7 @@ function UsersPoliciesPage() {
                     <td>{policy.restrictedCategory}</td>
                     <td>{policy.rateLimit}</td>
                     <td>
-                      <button type="button" className="mini-btn" onClick={() => removePolicy(policy.id)}>
+                      <button type="button" className="mini-btn" aria-label={`Delete ${policy.name}`} onClick={() => removePolicy(policy.id)}>
                         Delete
                       </button>
                     </td>
