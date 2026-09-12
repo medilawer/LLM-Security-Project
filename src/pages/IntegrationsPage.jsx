@@ -65,7 +65,7 @@ function IntegrationsPage() {
                         className="mini-btn"
                         onClick={() => toggleIntegrationStatus(integration.id)}
                       >
-                        Toggle
+                        {integration.status === 'Online' ? 'Pause' : 'Resume'}
                       </button>
                     </td>
                   </tr>
