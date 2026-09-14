@@ -63,6 +63,7 @@ function IntegrationsPage() {
                       <button
                         type="button"
                         className="mini-btn"
+                        aria-label={`${integration.status === 'Online' ? 'Pause' : 'Resume'} ${integration.model}`}
                         onClick={() => toggleIntegrationStatus(integration.id)}
                       >
                         {integration.status === 'Online' ? 'Pause' : 'Resume'}
