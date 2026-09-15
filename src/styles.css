@@ -145,10 +145,14 @@ nav {
   padding: 0.6rem;
 }
 
+.user-box strong,
+.user-box span {
+  overflow-wrap: anywhere;
+}
+
 .user-box span {
   color: var(--muted);
   font-size: 0.85rem;
-  word-break: break-all;
 }
 
 .nav-link {
