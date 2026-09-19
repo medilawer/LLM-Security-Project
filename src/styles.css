@@ -284,6 +284,13 @@ th {
   color: var(--muted);
 }
 
+@media (max-width: 480px) {
+  .content,
+  .sidebar {
+    padding: 0.85rem;
+  }
+}
+
 @media (max-width: 860px) {
   .shell {
     grid-template-columns: minmax(0, 1fr);
