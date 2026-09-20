@@ -163,6 +163,10 @@ nav {
   border-radius: 9px;
 }
 
+.nav-link:hover {
+  background: #f5f8ff;
+}
+
 .nav-link.active {
   background: #eaf1ff;
   border-color: #c8dafc;
