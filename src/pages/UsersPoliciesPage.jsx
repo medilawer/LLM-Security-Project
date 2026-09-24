@@ -8,8 +8,15 @@ function UsersPoliciesPage() {
   const [restrictedCategory, setRestrictedCategory] = useState('');
   const [rateLimit, setRateLimit] = useState('');
 
+  const [formError, setFormError] = useState('');
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!group.trim() || !name.trim() || !restrictedCategory.split(',').some((term) => term.trim())) {
+      setFormError('Enter a group, policy name, and at least one restricted keyword.');
+      return;
+    }
+    setFormError('');
     addPolicy({ group, name, restrictedCategory, rateLimit });
     setGroup('');
     setName('');
@@ -50,6 +57,7 @@ function UsersPoliciesPage() {
             />
             <button type="submit" className="primary">Save Policy</button>
           </form>
+          {formError ? <p className="auth-msg error" role="alert">{formError}</p> : null}
         </article>
 
         <article className="panel">
