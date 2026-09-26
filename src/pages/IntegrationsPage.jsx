@@ -7,8 +7,15 @@ function IntegrationsPage() {
   const [model, setModel] = useState('');
   const [mode, setMode] = useState('Token Auth');
 
+  const [formError, setFormError] = useState('');
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!provider.trim() || !model.trim() || !mode.trim()) {
+      setFormError('Enter a provider, model, and connection mode.');
+      return;
+    }
+    setFormError('');
     addIntegration({ provider, model, mode, status: 'Online' });
     setProvider('');
     setModel('');
@@ -34,6 +41,7 @@ function IntegrationsPage() {
             <input id="integration-mode" value={mode} onChange={(event) => setMode(event.target.value)} placeholder="Token Auth" required />
             <button type="submit" className="primary">Add Integration</button>
           </form>
+          {formError ? <p className="auth-msg error" role="alert">{formError}</p> : null}
         </article>
 
         <article className="panel">
