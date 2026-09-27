@@ -8,8 +8,15 @@ function CompliancePage() {
   const [suite, setSuite] = useState('Safety Baseline');
   const [model, setModel] = useState(integrations[0]?.model || '');
 
+  const [formError, setFormError] = useState('');
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!model.trim()) {
+      setFormError('Enter a model label.');
+      return;
+    }
+    setFormError('');
     setReport(runComplianceTest({ suite, model }));
   };
 
@@ -32,6 +39,7 @@ function CompliancePage() {
             <input id="compliance-model" value={model} onChange={(event) => setModel(event.target.value)} required />
             <button type="submit" className="primary">Run Compliance Test</button>
           </form>
+          {formError ? <p className="auth-msg error" role="alert">{formError}</p> : null}
           <div aria-live="polite">
             {report ? (
               <div className="compliance-report">
