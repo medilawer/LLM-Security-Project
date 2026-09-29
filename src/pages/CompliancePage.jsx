@@ -17,7 +17,7 @@ function CompliancePage() {
       return;
     }
     setFormError('');
-    setReport(runComplianceTest({ suite, model }));
+    setReport(runComplianceTest({ suite, model: model.trim() }));
   };
 
   return (
