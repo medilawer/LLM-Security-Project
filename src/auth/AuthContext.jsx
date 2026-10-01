@@ -31,6 +31,10 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(readCurrentUser);
 
   const signup = ({ name, email, company, password }) => {
+    if (!name.trim() || !company.trim()) {
+      return { ok: false, error: 'Enter your name and organization.' };
+    }
+
     const users = readUsers();
     const normalizedEmail = email.trim().toLowerCase();
 
