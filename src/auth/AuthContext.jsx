@@ -30,6 +30,15 @@ function readCurrentUser() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(readCurrentUser);
 
+  const rememberUser = (user) => {
+    try {
+      localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+    } catch {
+      // The user can still sign in for the current page session.
+    }
+    setCurrentUser(user);
+  };
+
   const signup = ({ name, email, company, password }) => {
     if (!name.trim() || !company.trim()) {
       return { ok: false, error: 'Enter your name and organization.' };
@@ -50,9 +59,6 @@ export function AuthProvider({ children }) {
       password,
     };
 
-    users.push(newUser);
-    writeUsers(users);
-
     const safeUser = {
       id: newUser.id,
       name: newUser.name,
@@ -60,8 +66,13 @@ export function AuthProvider({ children }) {
       company: newUser.company,
     };
 
-    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(safeUser));
-    setCurrentUser(safeUser);
+    try {
+      writeUsers([...users, newUser]);
+    } catch {
+      return { ok: false, error: 'Unable to save this account in browser storage.' };
+    }
+
+    rememberUser(safeUser);
     return { ok: true };
   };
 
