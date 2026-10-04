@@ -95,8 +95,7 @@ export function AuthProvider({ children }) {
       company: matched.company,
     };
 
-    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(safeUser));
-    setCurrentUser(safeUser);
+    rememberUser(safeUser);
     return { ok: true };
   };
 
