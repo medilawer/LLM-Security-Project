@@ -8,7 +8,10 @@ const AuthContext = createContext(null);
 function readUsers() {
   try {
     const raw = localStorage.getItem(USERS_KEY);
-    return raw ? JSON.parse(raw) : [];
+    const users = raw ? JSON.parse(raw) : [];
+    return Array.isArray(users)
+      ? users.filter((user) => typeof user?.email === 'string' && typeof user.password === 'string')
+      : [];
   } catch {
     return [];
   }
