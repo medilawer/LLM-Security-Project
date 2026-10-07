@@ -24,7 +24,8 @@ function writeUsers(users) {
 function readCurrentUser() {
   try {
     const raw = localStorage.getItem(CURRENT_USER_KEY);
-    return raw ? JSON.parse(raw) : null;
+    const user = raw ? JSON.parse(raw) : null;
+    return typeof user?.id === 'string' && typeof user.email === 'string' ? user : null;
   } catch {
     return null;
   }
