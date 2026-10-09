@@ -104,7 +104,11 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    localStorage.removeItem(CURRENT_USER_KEY);
+    try {
+      localStorage.removeItem(CURRENT_USER_KEY);
+    } catch {
+      // Storage access may be disabled for the current browser session.
+    }
     setCurrentUser(null);
   };
 
