@@ -5,13 +5,20 @@ function EnforcementPage() {
   const { enforcementLogs, evaluatePrompt } = useAppData();
   const [user, setUser] = useState('');
   const [prompt, setPrompt] = useState('');
+  const [error, setError] = useState('');
   const [result, setResult] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const evaluation = evaluatePrompt({ user, prompt });
-    setResult(evaluation);
-    setPrompt('');
+    setError('');
+    try {
+      const evaluation = evaluatePrompt({ user, prompt });
+      setResult(evaluation);
+      setPrompt('');
+    } catch (err) {
+      setError(err.message);
+      setResult(null);
+    }
   };
 
   return (
@@ -43,6 +50,7 @@ function EnforcementPage() {
             <button type="submit" className="primary">Evaluate</button>
           </form>
 
+          {error ? <p role="alert">{error}</p> : null}
           {result ? (
             <div className="auth-msg" style={{ marginTop: '0.9rem', background: '#eef6ff', border: '1px solid #d3e5ff' }}>
               Decision: <strong>{result.decision}</strong> | Reason: {result.reason}

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import { checkPrompt } from './promptGuard.js';
+import { evaluateCompliance } from './compliance.js';
 
 const DATA_KEY = 'llm_secure_platform_data';
 
@@ -103,15 +104,13 @@ export function AppDataProvider({ children }) {
   };
 
   const runComplianceTest = ({ suite, model }) => {
-    const score = Math.floor(60 + Math.random() * 40);
-    const result = score >= 85 ? 'Pass' : score >= 70 ? 'Needs Review' : 'Fail';
+    const report = evaluateCompliance(suite, data.policies);
 
     const run = {
       id: crypto.randomUUID(),
       suite,
       model,
-      score,
-      result,
+      ...report,
     };
 
     setData((prev) => ({ ...prev, complianceRuns: [run, ...prev.complianceRuns] }));
