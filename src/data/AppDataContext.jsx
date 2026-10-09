@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
+import { checkPrompt } from './promptGuard.js';
+
 const DATA_KEY = 'llm_secure_platform_data';
 
 const seedData = {
@@ -85,28 +87,7 @@ export function AppDataProvider({ children }) {
   };
 
   const evaluatePrompt = ({ user, prompt }) => {
-    const lowerPrompt = prompt.toLowerCase();
-
-    let reason = 'Policy matched';
-    let decision = 'Allowed';
-
-    const matchedPolicy = data.policies.find((policy) => {
-      const terms = policy.restrictedCategory
-        .split(',')
-        .map((term) => term.trim().toLowerCase())
-        .filter(Boolean);
-      return terms.some((term) => lowerPrompt.includes(term));
-    });
-
-    if (matchedPolicy) {
-      decision = 'Blocked';
-      reason = `Matched restricted category in ${matchedPolicy.name}`;
-    }
-
-    if (lowerPrompt.includes('ignore policy') || lowerPrompt.includes('jailbreak')) {
-      decision = 'Blocked';
-      reason = 'Jailbreak phrase risk';
-    }
+    const { decision, reason } = checkPrompt(prompt, data.policies);
 
     const log = {
       id: crypto.randomUUID(),
