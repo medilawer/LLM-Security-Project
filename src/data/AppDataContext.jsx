@@ -29,7 +29,15 @@ const AppDataContext = createContext(null);
 function loadData() {
   try {
     const raw = localStorage.getItem(DATA_KEY);
-    return raw ? JSON.parse(raw) : seedData;
+    const saved = raw ? JSON.parse(raw) : null;
+    if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return seedData;
+
+    return {
+      policies: Array.isArray(saved.policies) ? saved.policies : seedData.policies,
+      integrations: Array.isArray(saved.integrations) ? saved.integrations : seedData.integrations,
+      enforcementLogs: Array.isArray(saved.enforcementLogs) ? saved.enforcementLogs : seedData.enforcementLogs,
+      complianceRuns: Array.isArray(saved.complianceRuns) ? saved.complianceRuns : seedData.complianceRuns,
+    };
   } catch {
     return seedData;
   }
