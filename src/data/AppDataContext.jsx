@@ -26,6 +26,12 @@ const seedData = {
 
 const AppDataContext = createContext(null);
 
+function loadRecords(saved, key) {
+  return Array.isArray(saved[key])
+    ? saved[key].filter((record) => typeof record?.id === 'string')
+    : seedData[key];
+}
+
 function loadData() {
   try {
     const raw = localStorage.getItem(DATA_KEY);
@@ -33,10 +39,10 @@ function loadData() {
     if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return seedData;
 
     return {
-      policies: Array.isArray(saved.policies) ? saved.policies : seedData.policies,
-      integrations: Array.isArray(saved.integrations) ? saved.integrations : seedData.integrations,
-      enforcementLogs: Array.isArray(saved.enforcementLogs) ? saved.enforcementLogs : seedData.enforcementLogs,
-      complianceRuns: Array.isArray(saved.complianceRuns) ? saved.complianceRuns : seedData.complianceRuns,
+      policies: loadRecords(saved, 'policies'),
+      integrations: loadRecords(saved, 'integrations'),
+      enforcementLogs: loadRecords(saved, 'enforcementLogs'),
+      complianceRuns: loadRecords(saved, 'complianceRuns'),
     };
   } catch {
     return seedData;
