@@ -58,7 +58,11 @@ export function AppDataProvider({ children }) {
   const [data, setData] = useState(loadData);
 
   useEffect(() => {
-    localStorage.setItem(DATA_KEY, JSON.stringify(data));
+    try {
+      localStorage.setItem(DATA_KEY, JSON.stringify(data));
+    } catch {
+      // Keep edits usable in memory if storage is full or disabled.
+    }
   }, [data]);
 
   const addPolicy = ({ group, name, restrictedCategory, rateLimit }) => {
