@@ -15,7 +15,7 @@ export function checkPrompt(prompt, policies = []) {
     return { decision: 'Blocked', reason: 'Jailbreak phrase risk' };
   }
   for (const policy of policies) {
-    if (policy.status !== 'Active') continue;
+    if (policy?.status !== 'Active' || typeof policy.restrictedCategory !== 'string') continue;
     const terms = policy.restrictedCategory.split(',').map((term) => term.trim()).filter(Boolean);
     for (const term of terms) {
       const escaped = term.normalize('NFKC').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
