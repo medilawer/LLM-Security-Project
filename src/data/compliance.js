@@ -18,8 +18,8 @@ export const complianceSuites = {
 };
 
 export function evaluateCompliance(suite, policies) {
-  const cases = complianceSuites[suite];
   if (!Object.hasOwn(complianceSuites, suite)) throw new Error('Unknown compliance suite.');
+  const cases = complianceSuites[suite];
   const results = cases.map(({ prompt, expected }) => {
     const { decision, reason } = checkPrompt(prompt, policies);
     return { prompt, expected, decision, reason, passed: decision === expected };
