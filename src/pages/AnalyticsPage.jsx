@@ -5,11 +5,12 @@ function AnalyticsPage() {
   const { enforcementLogs } = useAppData();
 
   const topUsers = useMemo(() => {
-    const map = {};
+    const counts = new Map();
     for (const log of enforcementLogs) {
-      map[log.user] = (map[log.user] || 0) + 1;
+      if (typeof log.user !== 'string' || !log.user) continue;
+      counts.set(log.user, (counts.get(log.user) ?? 0) + 1);
     }
-    return Object.entries(map)
+    return [...counts]
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5);
   }, [enforcementLogs]);
