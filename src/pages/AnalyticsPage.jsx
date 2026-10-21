@@ -11,7 +11,7 @@ function AnalyticsPage() {
       counts.set(log.user, (counts.get(log.user) ?? 0) + 1);
     }
     return [...counts]
-      .sort((a, b) => b[1] - a[1])
+      .sort(([userA, countA], [userB, countB]) => countB - countA || userA.localeCompare(userB))
       .slice(0, 5);
   }, [enforcementLogs]);
 
