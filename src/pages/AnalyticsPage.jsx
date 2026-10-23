@@ -51,7 +51,7 @@ function AnalyticsPage() {
           <h3>Top Active Users</h3>
           <ul className="plain-list">
             {topUsers.map(([user, count]) => (
-              <li key={user}>{user} - {count} requests</li>
+              <li key={user}>{user} - {count} {count === 1 ? 'request' : 'requests'}</li>
             ))}
             {topUsers.length === 0 ? <li>No activity yet.</li> : null}
           </ul>
