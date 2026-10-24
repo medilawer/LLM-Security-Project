@@ -26,7 +26,7 @@ function AnalyticsPage() {
     };
 
     blocked.forEach((log) => {
-      const reason = log.reason.toLowerCase();
+      const reason = typeof log.reason === 'string' ? log.reason.toLowerCase() : '';
       if (reason.includes('jailbreak')) labels.jailbreak += 1;
       else if (reason.includes('category') || reason.includes('pii')) labels.pii += 1;
       else labels.other += 1;
