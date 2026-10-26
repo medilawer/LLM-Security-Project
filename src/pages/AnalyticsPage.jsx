@@ -17,7 +17,8 @@ function AnalyticsPage() {
 
   const violationBreakdown = useMemo(() => {
     const blocked = enforcementLogs.filter((log) => log.decision === 'Blocked');
-    const total = blocked.length || 1;
+    if (blocked.length === 0) return [];
+    const total = blocked.length;
 
     const labels = {
       jailbreak: 0,
@@ -60,6 +61,7 @@ function AnalyticsPage() {
         <article className="panel">
           <h3>Violation Breakdown</h3>
           <ul className="plain-list">
+            {violationBreakdown.length === 0 ? <li>No blocked prompts yet.</li> : null}
             {violationBreakdown.map((item) => (
               <li key={item.label}>{item.label}: {item.value}</li>
             ))}
