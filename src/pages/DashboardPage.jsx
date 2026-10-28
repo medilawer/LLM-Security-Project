@@ -5,13 +5,14 @@ function DashboardPage() {
   const { policies, integrations, enforcementLogs, complianceRuns } = useAppData();
 
   const blockedCount = enforcementLogs.filter((log) => log.decision === 'Blocked').length;
-  const passCount = complianceRuns.filter((run) => run.result === 'Pass').length;
+  const measuredRuns = complianceRuns.filter((run) => Array.isArray(run.cases));
+  const passCount = measuredRuns.filter((run) => run.result === 'Pass').length;
 
   const stats = [
     { label: 'Policy Rules', value: String(policies.length) },
     { label: 'Connected Models', value: String(integrations.length) },
     { label: 'Enforcement Events', value: String(enforcementLogs.length) },
-    { label: 'Compliance Passes', value: `${passCount}/${complianceRuns.length || 0}` },
+    { label: 'Compliance Passes', value: `${passCount}/${measuredRuns.length}` },
   ];
 
   return (
