@@ -4,6 +4,7 @@ import { useAppData } from '../data/AppDataContext';
 function DashboardPage() {
   const { policies, integrations, enforcementLogs, complianceRuns } = useAppData();
 
+  const allowedCount = enforcementLogs.filter((log) => log.decision === 'Allowed').length;
   const blockedCount = enforcementLogs.filter((log) => log.decision === 'Blocked').length;
   const measuredRuns = complianceRuns.filter((run) => Array.isArray(run.cases));
   const passCount = measuredRuns.filter((run) => run.result === 'Pass').length;
@@ -32,7 +33,7 @@ function DashboardPage() {
         <h3>Security Snapshot</h3>
         <ul className="plain-list">
           <li>Blocked requests: {blockedCount}</li>
-          <li>Allowed requests: {enforcementLogs.length - blockedCount}</li>
+          <li>Allowed requests: {allowedCount}</li>
           <li>Online integrations: {integrations.filter((item) => item.status === 'Online').length}</li>
           <li>Active policies: {policies.filter((policy) => policy.status === 'Active').length}</li>
         </ul>
