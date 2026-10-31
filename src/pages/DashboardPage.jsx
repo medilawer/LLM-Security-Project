@@ -11,7 +11,7 @@ function DashboardPage() {
 
   const stats = [
     { label: 'Policy Rules', value: String(policies.length) },
-    { label: 'Connected Models', value: String(integrations.length) },
+    { label: 'Integration Records', value: String(integrations.length) },
     { label: 'Enforcement Events', value: String(enforcementLogs.length) },
     { label: 'Compliance Passes', value: `${passCount}/${measuredRuns.length}` },
   ];
