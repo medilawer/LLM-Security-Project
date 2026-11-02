@@ -26,7 +26,7 @@ function IntegrationsPage() {
     <section>
       <div className="page-head">
         <h2>Integrations</h2>
-        <p>Add providers and toggle model availability.</p>
+        <p>Record model and provider details and manage their demo status.</p>
       </div>
 
       <div className="two-col">
@@ -45,7 +45,7 @@ function IntegrationsPage() {
         </article>
 
         <article className="panel">
-          <h3 id="integrations-records">Connected Providers</h3>
+          <h3 id="integrations-records">Integration Records</h3>
           <div className="table-scroll" tabIndex={0} role="region" aria-labelledby="integrations-records">
             <table>
               <thead>
