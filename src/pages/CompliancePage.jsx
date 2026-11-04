@@ -78,8 +78,8 @@ function CompliancePage() {
                   <tr key={run.id}>
                     <td>{run.suite}</td>
                     <td>{run.model}</td>
-                    <td>{run.cases ? `${run.score}%` : 'Legacy demo'}</td>
-                    <td>{run.cases ? run.result : 'Not measured'}</td>
+                    <td>{Array.isArray(run.cases) ? `${run.score}% (${run.passed}/${run.total})` : 'Legacy demo'}</td>
+                    <td>{Array.isArray(run.cases) ? run.result : 'Not measured'}</td>
                   </tr>
                 ))}
               </tbody>
