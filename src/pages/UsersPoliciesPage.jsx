@@ -28,7 +28,7 @@ function UsersPoliciesPage() {
     <section>
       <div className="page-head">
         <h2>Users & Policies</h2>
-        <p>Create and manage policy rules with working form actions.</p>
+        <p>Manage restricted keywords. Group and daily limit fields are recorded for reference.</p>
       </div>
 
       <div className="two-col">
