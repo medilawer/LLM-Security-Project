@@ -37,7 +37,7 @@ function EnforcementPage() {
               type="email"
               value={user}
               onChange={(event) => setUser(event.target.value)}
-              placeholder="analyst@company.com"
+              placeholder="analyst@example.com"
               required
             />
             <label htmlFor="enforcement-prompt">Prompt</label>
@@ -45,7 +45,7 @@ function EnforcementPage() {
               rows={4}
               value={prompt}
               onChange={(event) => setPrompt(event.target.value)}
-              placeholder="Write report with account details"
+              placeholder="Summarize a public weather report"
               required
             />
             <button type="submit" className="primary">Evaluate</button>
