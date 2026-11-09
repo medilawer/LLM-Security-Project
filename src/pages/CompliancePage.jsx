@@ -36,7 +36,12 @@ function CompliancePage() {
               {Object.keys(complianceSuites).map((name) => <option key={name}>{name}</option>)}
             </select>
             <label htmlFor="compliance-model">Model</label>
-            <input id="compliance-model" value={model} onChange={(event) => setModel(event.target.value)} required />
+            <input id="compliance-model" list="compliance-models" value={model} onChange={(event) => setModel(event.target.value)} required />
+            <datalist id="compliance-models">
+              {[...new Set(integrations.map((integration) => integration.model).filter(Boolean))].map((name) => (
+                <option key={name} value={name} />
+              ))}
+            </datalist>
             <button type="submit" className="primary">Run Compliance Test</button>
           </form>
           {formError ? <p className="auth-msg error" role="alert">{formError}</p> : null}
