@@ -4,7 +4,7 @@ import { complianceSuites } from '../data/compliance.js';
 
 function CompliancePage() {
   const { integrations, complianceRuns, runComplianceTest } = useAppData();
-  const [report, setReport] = useState(null);
+  const [report, setReport] = useState(() => complianceRuns.find((run) => Array.isArray(run.cases)) ?? null);
   const [suite, setSuite] = useState('Safety Baseline');
   const [model, setModel] = useState(integrations[0]?.model || '');
 
