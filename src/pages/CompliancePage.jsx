@@ -49,6 +49,7 @@ function CompliancePage() {
             {report ? (
               <div className="compliance-report">
                 <h3>Latest Report: {report.passed}/{report.total} checks passed</h3>
+                <p>{report.suite} · {report.model}</p>
                 <ul className="plain-list">
                   {report.cases.map((item, index) => (
                     <li key={index}>
