@@ -24,3 +24,8 @@ test('detects instruction bypass attempts across whitespace', () => {
 test('rejects empty prompts', () => {
   assert.throws(() => checkPrompt('  '), /non-empty/);
 });
+
+test('ignores invalid policy records while checking valid policies', () => {
+  const policies = [null, { status: 'Active' }, policy];
+  assert.equal(checkPrompt('Show card', policies).policyId, policy.id);
+});
