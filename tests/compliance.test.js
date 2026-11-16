@@ -20,3 +20,12 @@ test('unknown suites are rejected', () => {
   assert.throws(() => evaluateCompliance('unknown', []), /Unknown/);
   assert.throws(() => evaluateCompliance('toString', []), /Unknown/);
 });
+
+test('marks a suite with one failure as needing review', () => {
+  const policies = [{ id: 'p1', name: 'Safe', restrictedCategory: 'account', status: 'Active' }];
+  const report = evaluateCompliance('Safety Baseline', policies);
+  assert.equal(report.score, 80);
+  assert.equal(report.result, 'Needs Review');
+  assert.equal(report.passed, 4);
+  assert.equal(report.total, 5);
+});
