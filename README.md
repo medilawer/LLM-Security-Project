@@ -22,3 +22,7 @@ Active policies restrict literal, comma-separated keywords. Matching ignores cas
 Safety Baseline and Jailbreak Resistance evaluate fixed prompt cases against the configured rules. Scores represent the percentage of cases whose decisions match their expected results. The UI shows each expected and actual decision so failures can be reviewed. The model field records a label only; these checks do not call or certify an LLM provider.
 
 Application data is stored in browser localStorage. Authentication and provider status are demo features; there is no server-side enforcement or live provider connection. Use synthetic data when evaluating the prototype.
+
+## Preview and hosting
+
+After building, run `npm run preview` to check the production bundle locally. A static host serving the build should route application paths such as `/compliance` to `index.html` so direct visits and refreshes work.
