@@ -23,6 +23,8 @@ Groups and per-day limits are recorded for reference. Prompt checks apply all ac
 
 Safety Baseline and Jailbreak Resistance evaluate fixed prompt cases against the configured rules. Scores represent the percentage of cases whose decisions match their expected results. The UI shows each expected and actual decision so failures can be reviewed. The model field records a label only; these checks do not call or certify an LLM provider.
 
+Scores of 85% or higher pass. Scores from 70% through 84% require review, and scores below 70% fail. The initial history includes legacy demo rows that are excluded from dashboard pass totals.
+
 Application data is stored in browser localStorage. Authentication and provider status are demo features; there is no server-side enforcement or live provider connection. Use synthetic data when evaluating the prototype.
 
 ## Preview and hosting
