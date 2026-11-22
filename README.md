@@ -25,7 +25,7 @@ Safety Baseline and Jailbreak Resistance evaluate fixed prompt cases against the
 
 Scores of 85% or higher pass. Scores from 70% through 84% require review, and scores below 70% fail. The initial history includes legacy demo rows that are excluded from dashboard pass totals.
 
-Application data is stored in browser localStorage. Authentication and provider status are demo features; there is no server-side enforcement or live provider connection. Use synthetic data when evaluating the prototype.
+Application data is stored in browser localStorage. Authentication and provider status are demo features; there is no server-side enforcement or live provider connection. Accounts, demo credentials, and workspace records are stored for the current browser origin. Use synthetic prompts, email addresses, and passwords when evaluating the prototype. Clearing this site's browser data resets the workspace and demo accounts.
 
 ## Preview and hosting
 
